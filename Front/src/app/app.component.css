@@ -1,0 +1,71 @@
+.card {
+  max-width: 400px;
+  width: 350px;
+  height: 550px;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+}
+
+.card .product-img{
+  transition: 0.2s ease-in-out;
+  opacity: 1;
+}
+
+
+.card:hover .product-img{
+  margin-top: -15rem;
+  opacity: 0.5;
+
+}
+
+.card  mat-card-content{
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+}
+
+.card:hover mat-card-content{
+  visibility: visible;
+  opacity: 1;
+}
+
+.filter-card {
+  max-width: 400px;
+  width: 350px;
+  height: auto;
+  overflow: hidden;
+  display: grid;
+  justify-content: center;
+  grid-row-gap: 10px;
+  row-gap: 10px;
+  margin: 30px auto;
+}
+
+.no-bottom {
+  margin-bottom: -1.25em !important;
+}
+
+.table {
+  max-width: 3000px;
+  width: 90%;
+  height: auto;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 400px);
+  justify-content: center;
+  grid-row-gap: 10px;
+  row-gap: 10px;
+}
+
+mat-card-actions {
+  position: absolute;
+  bottom: 5%;
+  left: 18%;
+}
+
+.date-error {
+  background-color: #e91e63;
+  color: rgb(255, 226, 221);
+}
+

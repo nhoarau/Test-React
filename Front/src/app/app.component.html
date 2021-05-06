@@ -1,0 +1,32 @@
+<div class="app">
+  <mat-card class="filter-card">
+    <h1>Product Hunt Products</h1>
+    <button mat-raised-button color="primary" (click)="getDataFromApi()" *ngIf="!isConnected">Connection to Product Hunt</button>
+    <mat-card class="date-error" *ngIf="isVisible">Please select a date</mat-card>
+    <mat-form-field appearance="fill" class="no-bottom" *ngIf="isConnected">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" (dateChange)="addEvent('change', $event)">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button mat-raised-button color="secondary" (click)="getProducts()" *ngIf="isConnected">Load products by date</button>
+  </mat-card>
+  <div class="table">
+    <div *ngFor="let item of listProducts">
+      <mat-card class="card">
+        <img class="product-img" mat-card-image src={{item.node.thumbnail.url}} alt="Photo of a Shiba Inu">
+        <mat-card-header>
+          <mat-card-title>{{item.node.name}}</mat-card-title>
+          <mat-card-subtitle>{{item.node.tagline}}  {{item.node.createdAt | date:'medium'}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{item.node.description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a href={{item.node.url}} mat-raised-button>Product Hunt Link</a>
+          <a href={{item.node.website}} mat-raised-button>Website</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
